@@ -56,6 +56,10 @@
       color: var(--primary-color);
       text-decoration: none;
       letter-spacing: -0.5px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
     nav a {
@@ -67,6 +71,10 @@
       text-transform: uppercase;
       font-size: 0.9rem;
       letter-spacing: 0.5px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
     nav a:hover {
@@ -112,6 +120,10 @@
     }
 
     .product-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
       background: white;
       border-radius: 8px;
       overflow: hidden;
@@ -119,6 +131,7 @@
       transition: box-shadow 0.3s ease;
       cursor: pointer;
       border: 1px solid var(--border-color);
+      padding: 1rem;
     }
 
     .product-card:hover {
@@ -129,20 +142,28 @@
       width: 100%;
       height: 200px;
       overflow: hidden;
-      background: #f5f5f5;
+      background: white;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 1rem;
+      border-radius: 6px;
     }
 
     .product-image img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
     }
 
     .product-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
       padding: 1.5rem;
+      
     }
 
     .product-title {
@@ -160,6 +181,7 @@
     }
 
     .learn-more-btn {
+      margin-top: auto;
       background: var(--primary-color);
       color: white;
       border: none;
@@ -319,6 +341,28 @@
               <a href="forkliftTracker.html" class="learn-more-btn">Learn More</a>
             </div>
           </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img src="assets/render1.png" alt="Render">
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Forklift Operator Terminal</h3>
+              <p class="product-description">Ultra-wideband technology platform providing centimeter-level accuracy for indoor positioning and asset tracking applications.</p>
+              <a href="render.html" class="learn-more-btn">Learn More</a>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img src="assets/pager1.JPG" alt="Pager">
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Forklift Operator Terminal</h3>
+              <p class="product-description">Ultra-wideband technology platform providing centimeter-level accuracy for indoor positioning and asset tracking applications.</p>
+              <a href="pagerTracker.html" class="learn-more-btn">Learn More</a>
+            </div>
+          </div>
         </div>
       </section>
   
@@ -326,8 +370,12 @@
       <footer>
           <div class="footer-content">
             <div class="footer-section">
-              <h3>About Creuf</h3>
-              <p>Creuf manufactures leading-edge technologies for life and industry, specializing in real-time location systems that enhance safety, efficiency, and operational visibility.</p>
+              <h3>Creuf Technologies</h3>
+              <p>Advanced real-time location systems for industrial applications. Enhancing operational safety, efficiency, and visibility through precision tracking technology.</p>
+              <div class="footer-legal">
+                <a href="http://creuf.com/impressum.html" target="_blank" style="color: #fff; text-decoration: underline;">Impressum</a><br>
+                <span style="color: #fff;">Copyright ©2025 All rights reserved</span>
+              </div>
             </div>
             <div class="footer-section">
               <h3>Contact Information</h3>
