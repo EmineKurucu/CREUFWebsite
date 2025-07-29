@@ -10,7 +10,6 @@
   <link rel="icon" href="assets/favikon.png" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="assets/font.css" rel="stylesheet">
   <style>
     :root {
       --primary-color: #2c3e50;
@@ -65,7 +64,6 @@
       user-select: none;
     }
 
-
     nav a {
       margin-left: 2rem;
       text-decoration: none;
@@ -93,41 +91,172 @@
  
     /* Hero Section */
     .hero {
-      background: var(--background-light);
+      position: relative;
       padding: 4rem 2rem;
       text-align: center;
       border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-slideshow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: slideAnimation 20s infinite;
+      z-index: 999;
+    }
+
+    .hero-slide:nth-child(1) {
+      animation-delay: 0s;
+      background-image: url('assets/fabrika1.jpg');
+    }
+
+    .hero-slide:nth-child(2) {
+      animation-delay: 4s;
+      background-image: url('assets/fabrika2.jpg');
+    }
+
+    .hero-slide:nth-child(3) {
+      animation-delay: 8s;
+      background-image: url('assets/fabrika3.jpg');
+    }
+
+    .hero-slide:nth-child(4) {
+      animation-delay: 12s;
+      background-image: url('assets/fabrika4.jpg');
+    }
+
+    .hero-slide:nth-child(5) {
+      animation-delay: 16s;
+      background-image: url('assets/fabrika5.jpg');
+    }
+
+    .hero-slide:nth-child(6) {
+      animation-delay: 16s;
+      background-image: url('assets/fabrika6.jpg');
+    }
+
+    
+
+    @keyframes slideAnimation {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      20% { opacity: 1; }
+      25% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .hero-slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(1, 64, 106, 0.8), rgba(44, 62, 80, 0.7));
+      z-index: 2;
     }
 
     .hero-content {
       max-width: 1200px;
       margin: 0 auto;
       align-items: center;
+      position: relative;
+      z-index: 3;
     }
 
     .hero-text {
       text-align: center;
+      color: var(--background-color);
     }
 
     .hero-text h1 {
       font-size: 2.5rem;
-      color: var(--text-color);
+      color: var(--background-color);
       margin-bottom: 1.5rem;
       font-weight: 700;
       line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
     .hero-text p {
       font-size: 1.1rem;
-      color: var(--text-light);
+      color: rgba(255, 255, 255, 0.9);
       margin-bottom: 2rem;
       line-height: 1.6;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .hero-text .highlight {
+      color: #ffffff;
+      font-weight: 600;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .tech-highlights {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .tech-highlight {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .tech-highlight:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .tech-highlight h4 {
+      font-size: 1.1rem;
+      color: var(--background-color);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tech-highlight p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.4;
     }
 
     .cta-button {
       background: var(--accent-color);
       color: var(--background-color);
-      padding: 0.8rem 2rem;
+      padding: 1rem 2.5rem;
       border: none;
       font-weight: 600;
       cursor: pointer;
@@ -137,10 +266,63 @@
       display: inline-block;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      border-radius: 4px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
     .cta-button:hover {
       background: var(--primary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Hero Navigation Dots */
+    .hero-nav {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 4;
+    }
+
+    .hero-nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+      animation: dotAnimation 20s infinite;
+    }
+
+    .hero-nav-dot:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .hero-nav-dot:nth-child(2) {
+      animation-delay: 4s;
+    }
+
+    .hero-nav-dot:nth-child(3) {
+      animation-delay: 8s;
+    }
+
+    .hero-nav-dot:nth-child(4) {
+      animation-delay: 12s;
+    }
+
+    .hero-nav-dot:nth-child(5) {
+      animation-delay: 16s;
+    }
+
+    @keyframes dotAnimation {
+      0% { background: rgba(255, 255, 255, 0.5); transform: scale(1); }
+      5% { background: var(--accent-color); transform: scale(1.2); }
+      20% { background: var(--accent-color); transform: scale(1.2); }
+      25% { background: rgba(255, 255, 255, 0.5); transform: scale(1); }
+      100% { background: rgba(255, 255, 255, 0.5); transform: scale(1); }
     }
 
     /* Features Section */
@@ -354,7 +536,6 @@
       margin: 0 auto;
     }
 
-
     .products-cta-content p {
       font-size: 1.1rem;
       margin-bottom: 2rem;
@@ -426,7 +607,6 @@
       text-align: right;
     }
 
-
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero-content {
@@ -436,10 +616,16 @@
 
       .features-grid,
       .tech-content,
+      .tech-highlights,
       .applications-grid {
         grid-template-columns: 1fr;
       }
 
+      .hero-text,
+      .tech-content {
+        font-size: 0.5rem;
+      }
+      
       .certification-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -481,14 +667,6 @@
       .hero-text h1 {
         font-size: 1.8rem;
       }
-
-      .stat-item {
-        padding: 0.5rem;
-      }
-
-      .stat-number {
-        font-size: 1.5rem;
-      }
     }
   </style>
 </head>
@@ -504,13 +682,47 @@
   </header>
 
   <section class="hero">
+    <div class="hero-slideshow">
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+    </div>
+    
     <div class="hero-content">
       <div class="hero-text">
-        <h1>Real-Time Location Systems</h1>
-        <p>Enhance operational safety and efficiency with precision UWB tracking technology designed for demanding industrial environments.</p>
+        <h1>Pioneer in Industrial RTLS Technology</h1>
+        <p>Creuf is a leading technology company that develops real-time location systems using <span class="highlight">high-precision UWB technology designed </span>  for harsh industrial environments. We offer comprehensive solutions to enhance operational safety, optimize efficiency, and ensure the traceability of critical assets.</p>
+        <p>Our expert team based in Germany develops industry-standard products, including <span class="highlight">ATEX-certified </span> ex-proof devices, to enable our customers to achieve operational excellence.</p>
+
+        <div class="tech-highlights">
+          <div class="tech-highlight">
+            <h4>UWB Technology</h4>
+            <p>The most precise indoor positioning system.</p>
+          </div>
+
+          <div class="tech-highlight">
+            <h4>IP67 Durability</h4>
+            <p>Resistant to harsh industrial conditions</p>
+          </div>
+
+          <div class="tech-highlight">
+            <h4>ATEX Certified</h4>
+            <p>Safe to use in explosive environments</p>
+          </div>
+
+          <div class="tech-highlight">
+            <h4>Real-Time</h4>
+            <p>Real-time Data Transmission and Monitoring</p>
+          </div>
+        </div>
         <a href="#technology" class="cta-button">Learn More</a>
       </div>
     </div>
+
+    
   </section>
 
   <section class="features">
@@ -618,13 +830,9 @@
       </div>
       <div class="footer-section">
         <h3>Contact Information</h3>
-        <p><a href="mailto:info@creuf.com">info@creuf.com</a></p>
-        <p>Bahnhofstraße 61<br>
-           29693 Hodenhagen<br>
-           GERMANY</p>
+        <p>For inquiries about our RTLS solutions, please contact us through our website or reach out to our technical team.</p>
       </div>
     </div>
-
   </footer>
 </body>
 </html>
