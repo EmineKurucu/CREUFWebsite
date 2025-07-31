@@ -19,6 +19,7 @@ Endüstriyel alanda ürün tasarımı ve üretimi yapan bir şirket için HTML-C
 
 ### Home Page
 
+
 ![Proje Ekran Görüntüsü](screenshots/Resim8.png)
 ![Proje Ekran Görüntüsü](screenshots/resim9.png)
 ![Proje Ekran Görüntüsü](screenshots/resim10.png)
