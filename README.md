@@ -16,10 +16,7 @@ Endüstriyel alanda ürün tasarımı ve üretimi yapan bir şirket için HTML-C
 - Maps'ten vei çeklilen kısımda google maps'ten alınan URL
 
 ### Site Canlı Yayın Linki
-[Bağlantı Metni](https://creuf-website.vercel.app)
-[Bağlantı Metni](creuf-website.vercel.app)
-
-creuf-website.vercel.app
+[Canlı Website Linki](https://creuf-website.vercel.app)
 
 ## Fotoğraflar
 
