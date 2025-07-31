@@ -18,17 +18,17 @@ Endüstriyel alanda ürün tasarımı ve üretimi yapan bir şirket için HTML-C
 ## Fotoğraflar
 
 ### Home Page
-![Proje Ekran Görüntüsü](screenshots/Resim8.png)
-![Proje Ekran Görüntüsü](screenshots/resim9.png)
-![Proje Ekran Görüntüsü](screenshots/resim10.png)
+![Proje Ekran Görüntüsü](screenshots/resim1.png)
+![Proje Ekran Görüntüsü](screenshots/resim2.png)
+![Proje Ekran Görüntüsü](screenshots/resim3.png)
 
 ### Products
-![Proje Ekran Görüntüsü](screenshots/resim11.png)
-![Proje Ekran Görüntüsü](screenshots/resim12.png)
-![Proje Ekran Görüntüsü](screenshots/resim13.png)
-![Proje Ekran Görüntüsü](screenshots/resim14.png)
+![Proje Ekran Görüntüsü](screenshots/resim4.png)
+![Proje Ekran Görüntüsü](screenshots/resim5.png)
+![Proje Ekran Görüntüsü](screenshots/resim6.png)
+![Proje Ekran Görüntüsü](screenshots/resim7.png)
 
 ### Contact Us
-![Proje Ekran Görüntüsü](screenshots/resim15.png)
-![Proje Ekran Görüntüsü](screenshots/resim16.png)
+![Proje Ekran Görüntüsü](screenshots/resim18.png)
+![Proje Ekran Görüntüsü](screenshots/resim19.png)
 
