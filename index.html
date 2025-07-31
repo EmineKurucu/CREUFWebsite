@@ -283,7 +283,6 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     }
 
-    /* Hero Navigation Dots - KALDIRILDI */
 
     /* Features Section */
     .features {
@@ -523,49 +522,60 @@
       color: var(--background-color);
     }
 
-    /* Footer */
+    /*FOOTER */
     footer {
-      background: var(--secondary-color);
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
       padding: 3rem 2rem 2rem;
-      color: var(--background-color);
+      color: var(--white);
     }
 
     .footer-content {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 3rem;
       max-width: 1200px;
       margin: 0 auto;
     }
 
+    .footer-content:last-child {
+      align-items: right;
+    }
     .footer-section h3 {
-      color: var(--background-color);
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
+      color: white;
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
     .footer-section p {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       line-height: 1.6;
-      font-size: 0.95rem;
+      color: #ecf0f1;
     }
 
     .footer-section a {
-      color: var(--accent-color);
+      color: white;
       text-decoration: none;
-      transition: color 0.2s ease;
+      transition: color 0.3s ease;
     }
 
     .footer-section a:hover {
-      color: var(--background-color);
+      color: white;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #4a5568;
+      color: #a0aec0;
     }
 
     .footer-section:last-child {
       text-align: right;
+      justify-self: end;
     }
+
 
     /* Responsive Design */
     @media (max-width: 768px) {
@@ -776,21 +786,25 @@
     </div>
   </section>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Creuf Technologies</h3>
-        <p>Advanced real-time location systems for industrial applications. Enhancing operational safety, efficiency, and visibility through precision tracking technology.</p>
-        <div class="footer-legal">
-          <a href="http://creuf.com/impressum.html" target="_blank" style="color: #fff; text-decoration: underline;">Impressum</a><br>
-          <span style="color: #fff;">Copyright ©2025 All rights reserved</span>
+  <!--FOOTER-->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Creuf Technologies</h3>
+          <p>Advanced real-time location systems for industrial applications. Enhancing operational safety, efficiency, and visibility through precision tracking technology.</p>
+          <div class="footer-legal">
+            <a href="http://creuf.com/impressum.html" target="_blank" style="color: #fff; text-decoration: underline;">Impressum</a><br>
+            <span style="color: #fff;">Copyright ©2025 All rights reserved</span>
+          </div>
         </div>
-      </div>
-      <div class="footer-section">
-        <h3>Contact Information</h3>
-        <p>For inquiries about our RTLS solutions, please contact us through our website or reach out to our technical team.</p>
-      </div>
-    </div>
-  </footer>
+        <div class="footer-section">
+            <h3>Contact Information</h3>
+            <p><a href="mailto:info@creuf.com">info@creuf.com</a></p>
+            <p>Bahnhofstraße 61<br>
+               29693 Hodenhagen<br>
+               GERMANY</p>
+          </div>
+        </div>
+    </footer>
 </body>
 </html>
