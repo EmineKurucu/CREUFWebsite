@@ -71,7 +71,11 @@
       user-select: none;
     }
 
-    nav a {
+    nav {
+      position: relative;
+    }
+
+    nav > a {
       margin-left: 2rem;
       text-decoration: none;
       color: var(--text-color);
@@ -84,16 +88,154 @@
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+      position: relative;
     }
 
-    nav a:hover {
+    nav > a:hover {
       color: var(--accent-color);
     }
 
-    nav a.active {
+    nav > a.active {
       color: var(--accent-color);
       border-bottom: 2px solid var(--accent-color);
       padding-bottom: 4px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-left: 2rem;
+    }
+
+    .dropdown-toggle {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+    }
+
+    .dropdown-toggle:hover {
+      color: var(--primary-color);
+    }
+
+    .dropdown-toggle.active {
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 4px;
+    }
+
+    .dropdown-arrow {
+      font-size: 0.7rem;
+      transition: transform 0.3s ease;
+    }
+
+    .dropdown:hover .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 5px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      min-width: 220px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid white;
+      filter: drop-shadow(0 -2px 4px rgba(0,0,0,0.1));
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 1rem 1.5rem;
+      margin: 0;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(189, 195, 199, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dropdown-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: linear-gradient(135deg, var(--background-light) 0%, #f0f8ff 100%);
+      color: var(--primary-color);
+    }
+
+    .dropdown-menu a::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: var(--accent-color);
+      transform: scaleY(0);
+      transition: transform 0.3s ease;
+      transform-origin: bottom;
+    }
+
+    .dropdown-menu a:hover::before {
+      transform: scaleY(1);
+    }
+
+    /* Bridge area to prevent menu closing */
+    .dropdown::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: transparent;
     }
  /* Products Section */
  .products-section {
@@ -119,6 +261,20 @@
       color: var(--text-light);
       max-width: 600px;
       margin: 0 auto;
+    }
+
+    .product-category {
+      margin-bottom: 4rem;
+    }
+
+    .category-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+      text-align: left;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
     }
 
     .products-grid {
@@ -222,13 +378,25 @@
         font-size: 1rem;
       }
 
+      .category-title {
+        font-size: 1.5rem;
+      }
+
       .products-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
 
-      nav a {
+      nav > a {
         margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .dropdown {
+        margin-left: 1rem;
+      }
+
+      .dropdown-toggle {
         font-size: 0.9rem;
       }
     }
@@ -290,7 +458,16 @@
         <a href="#" class="logo">CREUF</a>
         <nav>
           <a href="index.html">Home</a>
-          <a href="products.html" class="active">Products</a>
+          <div class="dropdown">
+            <a href="#" class="dropdown-toggle active">
+              Products
+              <span class="dropdown-arrow">▼</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="#person-tracker">Person Trackers</a>
+              <a href="#asset-tracker">Asset Trackers</a>
+            </div>
+          </div>
           <a href="index.html#technology">UWB Technology</a>
           <a href="contact.html">Contact Us</a>
         </nav>
@@ -302,74 +479,81 @@
           <h2>Our Products</h2>
           <p>Discover our comprehensive range of RTLS solutions designed for industrial environments and safety-critical applications.</p>
         </div>
-  
-        <div class="products-grid">
-         
-          <div class="product-card">
-            <div class="product-image">
-              <img src="assets/personTracker.png" alt="UWB Person Tracker">
-            </div>
-            <div class="product-content">
-              <h3 class="product-title">UWB Person Tracker</h3>
-              <p class="product-description">Indoor positioning & tracking of workers. Real time location and haptic feedbac.</p>
-              <a href="employeeTracker.html" class="learn-more-btn">Learn More</a>
-            </div>
-          </div>
-  
-          <div class="product-card">
-            <div class="product-image">
-              <img src="assets/idCard.png" alt="ID Card Sized UWB Tracker">
-            </div>
-            <div class="product-content">
-              <h3 class="product-title">ID Card Sized UWB Tracker</h3>
-              <p class="product-description">Light and slim UWB person tracker with MIFARE tag. Ideal for office use with 1 month of battery life</p>
-              <a href="idCardUWBTracker.html" class="learn-more-btn">Learn More</a>
-            </div>
-          </div>
-  
-          
-          <div class="product-card">
-            <div class="product-image">
-              <img src="assets/assetTracker.png" alt="UWB Indoor Asset Trackers">
-            </div>
-            <div class="product-content">
-              <h3 class="product-title">UWB Indoor Asset Trackers</h3>
-              <p class="product-description">Indoor RTLS asset tracker for factories and warehouses. Screw and magnet mount options</p>
-              <a href="assetTracker.html" class="learn-more-btn">Learn More</a>
-            </div>
-          </div>
-  
-    
-          <div class="product-card">
-            <div class="product-image">
-              <img src="assets/frokliftTerminal.png" alt="Forklift Operator Terminal">
-            </div>
-            <div class="product-content">
-              <h3 class="product-title">Forklift Operator Terminal</h3>
-              <p class="product-description">Ultra-wideband technology platform providing centimeter-level accuracy for indoor positioning and asset tracking applications.</p>
-              <a href="forkliftTracker.html" class="learn-more-btn">Learn More</a>
-            </div>
-          </div>
 
-          <div class="product-card">
-            <div class="product-image">
-              <img src="assets/render1.png" alt="Render">
+        <!-- Person Tracker Category -->
+        <div class="product-category" id="person-tracker">
+          <h3 class="category-title">Person Tracker</h3>
+          <div class="products-grid">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="assets/personTracker.png" alt="UWB Person Tracker">
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">UWB Person Tracker</h3>
+                <p class="product-description">Indoor positioning & tracking of workers. Real time location and haptic feedbac.</p>
+                <a href="employeeTracker.html" class="learn-more-btn">Learn More</a>
+              </div>
             </div>
-            <div class="product-content">
-              <h3 class="product-title">Render</h3>
-              <p class="product-description">Ultra-wideband technology platform providing centimeter-level accuracy for indoor positioning and asset tracking applications.</p>
-              <a href="render.html" class="learn-more-btn">Learn More</a>
+
+            <div class="product-card">
+              <div class="product-image">
+                <img src="assets/idCard.png" alt="ID Card Sized UWB Tracker">
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">ID Card Sized UWB Tracker</h3>
+                <p class="product-description">Light and slim UWB person tracker with MIFARE tag. Ideal for office use with 1 month of battery life</p>
+                <a href="idCardUWBTracker.html" class="learn-more-btn">Learn More</a>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div class="product-card">
-            <div class="product-image">
-              <img src="assets/pager1.JPG" alt="Pager">
+        <!-- Asset Tracker Category -->
+        <div class="product-category" id="asset-tracker">
+          <h3 class="category-title">Asset Tracker</h3>
+          <div class="products-grid">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="assets/frokliftTerminal.png" alt="Forklift Operator Terminal">
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">Forklift Operator Terminal</h3>
+                <p class="product-description">Ultra-wideband technology platform providing centimeter-level accuracy for indoor positioning and asset tracking applications.</p>
+                <a href="forkliftTracker.html" class="learn-more-btn">Learn More</a>
+              </div>
             </div>
-            <div class="product-content">
-              <h3 class="product-title">Pager</h3>
-              <p class="product-description">Ultra-wideband technology platform providing centimeter-level accuracy for indoor positioning and asset tracking applications.</p>
-              <a href="pagerTracker.html" class="learn-more-btn">Learn More</a>
+
+            <div class="product-card">
+              <div class="product-image">
+                <img src="assets/assetTracker.png" alt="UWB Indoor Asset Trackers">
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">UWB Indoor Asset Trackers</h3>
+                <p class="product-description">Indoor RTLS asset tracker for factories and warehouses. Screw and magnet mount options</p>
+                <a href="assetTracker.html" class="learn-more-btn">Learn More</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image">
+                <img src="assets/render1.png" alt="Render">
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">Render</h3>
+                <p class="product-description">Ultra-wideband technology platform providing centimeter-level accuracy for indoor positioning and asset tracking applications.</p>
+                <a href="render.html" class="learn-more-btn">Learn More</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image">
+                <img src="assets/pager1.JPG" alt="Pager">
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">Pager</h3>
+                <p class="product-description">Ultra-wideband technology platform providing centimeter-level accuracy for indoor positioning and asset tracking applications.</p>
+                <a href="pagerTracker.html" class="learn-more-btn">Learn More</a>
+              </div>
             </div>
           </div>
         </div>
